@@ -12,43 +12,68 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+
+  String _payInfo = "";
+  String _channel = "";
+  SuperPayResult _payResult;
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
+
+  callAlipay() async {
+    _payInfo = "";
+    _channel = "alipay";
+    dynamic payResult;
     try {
-      platformVersion = await FlutterSuperpay.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      print("The pay info is : " + _payInfo + _channel);
+      payResult = await FlutterSuperpay.pay(_payInfo, _channel);
+    } on Exception catch (e) {
+      payResult = null;
     }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
     if (!mounted) return;
 
     setState(() {
-      _platformVersion = platformVersion;
+      _payResult = payResult;
     });
   }
 
+  callWX() async {
+    _payInfo = "";
+    _channel = "wx";
+    dynamic payResult;
+    try {
+      print("The pay info is : " + _payInfo + _channel);
+      payResult = await FlutterSuperpay.pay(_payInfo, _channel);
+    } on Exception catch (e) {
+      payResult = null;
+    }
+
+    if (!mounted) return;
+
+    setState(() {
+      _payResult = payResult;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
-          title: const Text('Plugin example app'),
+          title: new Text('SuperPay example'),
         ),
-        body: new Center(
-          child: new Text('Running on: $_platformVersion\n'),
+        body: new SingleChildScrollView(
+          child: new Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              new RaisedButton(onPressed: callWX, child: new Text("调用微信")),
+              new RaisedButton(onPressed: callAlipay, child: new Text("调用支付宝")),
+              new Text(_payResult == null ? "null" : _payResult.toString())
+            ],
+          ),
         ),
       ),
     );
