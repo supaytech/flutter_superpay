@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   callWX() async {
-    _payInfo = "";
+    _payInfo = "{\"appid\":\"wxeae61855935702fb\",\"noncestr\":\"f8b3dacef9c146f8a8e55e0f4630be5e\",\"package\":\"Sign=WXPay\",\"partnerid\":\"232028432\",\"prepayid\":\"wx06200512915760d46c7c6ac32367430420\",\"sign\":\"597ED7F160249C28A26021121DC1C919\",\"timestamp\":\"1533557113\"}";
     _channel = "wx";
     dynamic payResult;
     try {
