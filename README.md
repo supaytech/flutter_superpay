@@ -82,6 +82,4 @@ var result = await FlutterSuperpay.pay("you pay info from server", "pay channel"
 ```
 
 ## More
-```
 [This link](https://github.com/supaytech)
-```
