@@ -15,6 +15,7 @@ class _MyAppState extends State<MyApp> {
 
   String _payInfo = "";
   String _channel = "";
+  String _wxAppId = "";
   SuperPayResult _payResult;
 
   @override
@@ -29,9 +30,10 @@ class _MyAppState extends State<MyApp> {
     dynamic payResult;
     try {
       print("The pay info is : " + _payInfo + _channel);
-      payResult = await FlutterSuperpay.pay(_payInfo, _channel);
+      payResult = await FlutterSuperpay.pay("",_payInfo, _channel);
     } on Exception catch (e) {
-      payResult = null;
+      print(e);
+      e.toString();
     }
 
     if (!mounted) return;
@@ -44,12 +46,14 @@ class _MyAppState extends State<MyApp> {
   callWX() async {
     _payInfo = "";
     _channel = "wx";
+    _wxAppId = "wx6c94cedf0b0fe9f9";
     dynamic payResult;
     try {
-      print("The pay info is : " + _payInfo + _channel);
-      payResult = await FlutterSuperpay.pay(_payInfo, _channel);
+      print("The pay info is : " +_wxAppId+ _payInfo + _channel);
+      payResult = await FlutterSuperpay.pay(_wxAppId,_payInfo, _channel);
     } on Exception catch (e) {
       payResult = null;
+      print(e);
     }
 
     if (!mounted) return;

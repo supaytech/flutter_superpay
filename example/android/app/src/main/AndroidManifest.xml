@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fluttersuperpayexample">
+    package="com.recheng.superandroid">
 
     <!-- The INTERNET permission is required for development. Specifically,
          flutter needs it to communicate with the running application
@@ -34,6 +34,28 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <!--<activity-alias-->
+        <!--android:name="你的自己的 app 包名.wxapi.WXPayEntryActivity"-->
+        <!--android:exported="true"-->
+        <!--android:targetActivity="com.recheng.superpay.pay.wechatpay.WeChatResult" />-->
+        <activity-alias
+            android:name="com.superpaydemo.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:targetActivity="com.recheng.superpay.pay.wechatpay.WeChatResult" />
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
         </activity>
     </application>
 </manifest>

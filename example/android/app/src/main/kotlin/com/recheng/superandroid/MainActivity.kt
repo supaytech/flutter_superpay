@@ -1,4 +1,4 @@
-package com.example.fluttersuperpayexample
+package com.recheng.superandroid
 
 import android.os.Bundle
 
