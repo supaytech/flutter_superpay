@@ -1,3 +1,2 @@
-## 0.0.1
-
-* TODO: Describe initial release.
+## [0.0.1] 
+* 集成支付宝微信渠道的支付方式
