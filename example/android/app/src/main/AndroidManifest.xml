@@ -44,7 +44,7 @@
         <!--android:exported="true"-->
         <!--android:targetActivity="com.recheng.superpay.pay.wechatpay.WeChatResult" />-->
         <activity-alias
-            android:name="com.superpaydemo.wxapi.WXPayEntryActivity"
+            android:name="com.recheng.superandroid.wxapi.WXPayEntryActivity"
             android:exported="true"
             android:targetActivity="com.recheng.superpay.pay.wechatpay.WeChatResult" />
         <activity

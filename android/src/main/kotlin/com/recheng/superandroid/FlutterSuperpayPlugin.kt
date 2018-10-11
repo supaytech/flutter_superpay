@@ -80,7 +80,7 @@ class FlutterSuperpayPlugin(private val mRegistrar: Registrar) : MethodCallHandl
                 }
 
                 override fun onPayFailure(payWay: PayWay, errCode: Int) {
-                    LogUtil.i("其他错误 " + payWay.toString())
+                    LogUtil.i("其他错误 " + payWay.toString()+errCode)
                     result["memo"] = "其他错误"
                     result["result"] = "其他错误"
                     result["resultStatus"] = "$errCode"
